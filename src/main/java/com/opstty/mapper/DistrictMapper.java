@@ -12,12 +12,14 @@ public class DistrictMapper extends Mapper<Object, Text, Text, IntWritable> {
 
     public void map(Object key, Text value, Context context)
          throws IOException, InterruptedException {
-            // Skip the first line
             String file = value.toString();
-            String [] lines = file.split("\n");
+            System.out.println(file);
+            String[] lines = file.split("\n");
             for (int i = 1; i < lines.length; i++) {
+                System.out.println(lines[i]);
                 String district = lines[i].split(DELIMITER)[1];
                 // Retrieve the second column value of district
+                System.out.println(district);
                 context.write(new Text(district), one);
             }
         }
