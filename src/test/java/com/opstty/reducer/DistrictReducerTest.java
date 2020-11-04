@@ -1,6 +1,6 @@
 package com.opstty.reducer;
 
-import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 import org.junit.Before;
@@ -28,9 +28,9 @@ public class DistrictReducerTest {
     @Test
     public void testReduce() throws IOException, InterruptedException {
         String key = "7";
-        IntWritable value = new IntWritable(1);
-        Iterable<IntWritable> values = Arrays.asList(value, value, value);
+        NullWritable value = NullWritable.get();
+        Iterable<NullWritable> values = Arrays.asList(value, value, value);
         this.districtReducer.reduce(new Text(key), values, this.context);
-        verify(this.context).write(new Text(key), new IntWritable(1));
+        verify(this.context).write(new Text(key), value);
     }
 }

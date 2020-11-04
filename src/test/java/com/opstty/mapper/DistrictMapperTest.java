@@ -1,6 +1,6 @@
 package com.opstty.mapper;
 
-import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.junit.Before;
@@ -34,6 +34,6 @@ public class DistrictMapperTest {
                 "(48.8768191638, 2.33210374339);9;Pterocarya;fraxinifolia;Juglandaceae;1862;22.0;330.0;Place d'Estienne-d'Orves;Pérocarya du Caucase;;14;Square Etienne d'Orves\n";
         this.districtMapper.map(null, new Text(value), this.context);
         verify(this.context, times(3))
-                .write(new Text("9"), new IntWritable(1));
+                .write(new Text("9"), NullWritable.get());
     }
 }

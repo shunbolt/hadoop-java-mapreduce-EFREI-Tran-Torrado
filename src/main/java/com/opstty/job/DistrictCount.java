@@ -2,10 +2,9 @@ package com.opstty.job;
 
 import com.opstty.mapper.DistrictMapper;
 import com.opstty.reducer.DistrictReducer;
-import com.opstty.reducer.IntSumReducer;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.NullWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
@@ -32,7 +31,7 @@ public class DistrictCount {
 
         // Type of output
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntWritable.class);
+        job.setOutputValueClass(NullWritable.class);
 
         // Set input path
         FileInputFormat.addInputPath(job, new Path(otherArgs[0]));
