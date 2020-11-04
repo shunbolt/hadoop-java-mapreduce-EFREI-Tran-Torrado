@@ -7,13 +7,12 @@ import org.apache.hadoop.mapreduce.Reducer;
 import java.io.IOException;
 
 public class DistrictReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+    private IntWritable result = new IntWritable();
 
-    @Override public void reduce(Text key, Iterable<IntWritable> values,Context context)
+    public void reduce(Text key, Iterable<IntWritable> values, Context context)
             throws IOException, InterruptedException {
-        int sum = 0;
-        for (IntWritable val : values){
-            sum += val.get();
-        }
-        context.write(key, new IntWritable(sum) );
+        int sum = 1;
+        result.set(sum);
+        context.write(key,result);
     }
 }

@@ -15,22 +15,32 @@ public class WordCount {
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
         String[] otherArgs = new GenericOptionsParser(conf, args).getRemainingArgs();
+
         if (otherArgs.length < 2) {
             System.err.println("Usage: wordcount <in> [<in>...] <out>");
             System.exit(2);
         }
+        // Create hadoop job and set main class
         Job job = Job.getInstance(conf, "wordcount");
         job.setJarByClass(WordCount.class);
+
+        // Set Mapper, Combiner, Reducer class
         job.setMapperClass(TokenizerMapper.class);
         job.setCombinerClass(IntSumReducer.class);
         job.setReducerClass(IntSumReducer.class);
+
+        // Type of output
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
+
+        // Input paths
         for (int i = 0; i < otherArgs.length - 1; ++i) {
             FileInputFormat.addInputPath(job, new Path(otherArgs[i]));
         }
+        // Output paths
         FileOutputFormat.setOutputPath(job,
                 new Path(otherArgs[otherArgs.length - 1]));
+
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }
