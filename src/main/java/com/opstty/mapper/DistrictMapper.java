@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.util.StringTokenizer;
 
 public class DistrictMapper extends Mapper<Object, Text, Text, NullWritable> {
-
     final String DELIMITER = ";" ;
     private Text district = new Text();
     int header = 0;
