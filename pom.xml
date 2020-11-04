@@ -19,6 +19,10 @@
       <id>hortonworks.public</id>
       <url>http://repo.hortonworks.com/content/groups/public/</url>
     </repository>
+    <repository>
+      <id>apache</id>
+      <url>http://maven.apache.org</url>
+    </repository>
   </repositories>
 
   <properties>
@@ -63,6 +67,16 @@
       <artifactId>mockito-all</artifactId>
       <version>${mockito.version}</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-core</artifactId>
+      <version>1.2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-common</artifactId>
+      <version>3.2.0</version>
     </dependency>
   </dependencies>
   <build>
