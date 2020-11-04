@@ -20,7 +20,7 @@ public class SpeciesHeightMapper extends Mapper<Object, Text, Text, FloatWritabl
         while (itr.hasMoreTokens()) {
             if(header == 1) {
                 line = itr.nextToken();
-                specimen.set(line.split(DELIMITER)[2]);
+                specimen.set(line.split(DELIMITER)[3]);
                 if (!line.split(DELIMITER)[6].isEmpty()){
                     height.set(Float.parseFloat(line.split(DELIMITER)[6]));
                 }

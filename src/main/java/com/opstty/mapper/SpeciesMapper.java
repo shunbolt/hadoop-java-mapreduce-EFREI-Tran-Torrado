@@ -18,7 +18,7 @@ public class SpeciesMapper extends Mapper<Object, Text, Text, NullWritable> {
         StringTokenizer itr = new StringTokenizer(value.toString(), "\n");
         while (itr.hasMoreTokens()) {
             if(header == 1) {
-                specimen.set(itr.nextToken().split(DELIMITER)[2]);
+                specimen.set(itr.nextToken().split(DELIMITER)[3]);
                 context.write(specimen, NullWritable.get());
             }
             else{
