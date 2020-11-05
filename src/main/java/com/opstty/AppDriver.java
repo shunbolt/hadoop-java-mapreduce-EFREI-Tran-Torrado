@@ -11,6 +11,8 @@ public class AppDriver {
         try {
             programDriver.addClass("districtcount", DistrictCount.class,
                     "A map/reduce program that counts the trees of each district in the input .csv file.");
+            programDriver.addClass("districtoldest", DistrictOldest.class,
+                    "A map/reduce program that displays the district with the oldest tree");
             programDriver.addClass("speciescount", SpeciesCount.class,
                     "A map/reduce program that counts the trees of each species in the input .csv file.");
             programDriver.addClass("speciescountwithtrees", SpeciesCountWithTrees.class,
