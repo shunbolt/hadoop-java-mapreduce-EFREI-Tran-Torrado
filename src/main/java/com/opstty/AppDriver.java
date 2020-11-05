@@ -17,6 +17,8 @@ public class AppDriver {
                     "A map/reduce program that counts the trees of each species and their population in the input .csv file.");
             programDriver.addClass("speciesheight", SpeciesHeightMax.class,
                     "A map/reduce program that finds the highest tree of each specimen in the input .csv file.");
+            programDriver.addClass("treesheightsort", WordCount.class,
+                    "A map/reduce program that counts the words in the input files.");
             programDriver.addClass("wordcount", WordCount.class,
                     "A map/reduce program that counts the words in the input files.");
 
